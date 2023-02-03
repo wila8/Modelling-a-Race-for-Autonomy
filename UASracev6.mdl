@@ -1,0 +1,2046 @@
+{UTF-8}
+New Change in Autonomy B=
+	AI Development B
+	 / Average procurement delay B
+	~	Technology/Year
+	~		|
+
+New Change in Autonomy A=
+	 AI Development A
+	 / Average procurement delay A
+	~	Technology/Year
+	~		|
+
+Budget B=
+	MIN(MAX( Needed budget for autonomous capabilities increase due to arms race B * One year\
+		 - UAS budget B, 0), GDP B)
+	~	Dollar
+	~		|
+
+New change in tech sophistication B=
+	 Tech Development B / Average procurement delay B
+	~	Technology/Year
+	~		|
+
+Budget A=
+	(MIN(MAX( Needed budget for autonomous capabilities increase due to arms race A * One year\
+		 - UAS budget A, 0), GDP A))
+	~	Dollar
+	~		|
+
+Regulation=
+	0
+	~	Technology
+	~	halfwaythrough = STEP( 0.7, 15 )
+		adaptive: IF THEN ELSE( UAS Stock level of autonomy A > 0.7 :OR: UAS Stock level of \
+		autonomy B> 0.7, 0.7 , 0 )
+		static: 0.7
+		none = 0
+	|
+
+Q tech B=
+	9.09616
+	~	Dmnl
+	~		|
+
+capability ratio A=
+	Other mil capabilities stock B / Other mil capabilities stock A
+	~	Dmnl
+	~		|
+
+capability ratio B=
+	Other mil capabilities stock A / Other mil capabilities stock B
+	~	Dmnl
+	~		|
+
+Q AI A=
+	10
+	~	Dmnl
+	~		|
+
+Q AI B=
+	10
+	~	Dmnl
+	~		|
+
+Q tech A=
+	9.75645
+	~	Dmnl
+	~		|
+
+v AI A=
+	10 - 10*0.07
+	~	Dmnl
+	~		|
+
+Increase in UAS budget B=
+	DELAY3(Budget B,Time to change desired margin of superiority B)/One year
+	~	Dollar/Year
+	~	Needed budget for autonomous capabilities increase due to arms race B
+	|
+
+personnel ratio B=
+	Personnel A / Personnel B
+	~	Dmnl
+	~		|
+
+v tech B=
+	1
+	~	Dmnl
+	~		|
+
+v AI B=
+	10
+	~	Dmnl
+	~		|
+
+v tech A=
+	8.82062
+	~	Dmnl
+	~		|
+
+Increase in UAS budget A=
+	DELAY3(Budget A,Time to change desired margin of superiority A)/One year
+	~	Dollar/Year
+	~	IF THEN ELSE(UAS budget A > Total budget for military A, 0, DELAY3(MAX( \
+		Needed budget for autonomous capabilities increase due to arms race A - \
+		UAS budget A, 0), Time to change desired margin of superiority A))
+	|
+
+personnel ratio A=
+	Personnel B / Personnel A
+	~	Dmnl
+	~		|
+
+maintainers per UAS B=
+	1.75818
+	~	Personnel/Capability
+	~		|
+
+New trained personnel A=
+	Personnel under training A / Time to train A
+	~	Personnel/Year
+	~		|
+
+New trained personnel B=
+	Personnel under training B / Time to train B
+	~	Personnel/Year
+	~		|
+
+Needed budget for autonomous capabilities increase due to arms race A=
+	(Total UAS personnel Cost A+ (Autonomy Gap A)  / (Initial autonomous capabilities per dollar A\
+		)) / One year
+	~	Dollar/Year
+	~	Actual effectiveness UAS A * (Total UAS personnel Cost A+ (Autonomy Gap A)  \
+		/ (Initial autonomous capabilities per dollar A))
+	|
+
+Total UAS personnel Cost A=
+	(Personnel A * Cost per personnel A) + Personnel under training A * Training cost per personnel A
+	~	Dollar
+	~		|
+
+Total UAS personnel Cost B=
+	(Personnel B * Cost per personnel B) + Personnel under training B * Training cost per personnel B
+	~	Dollar
+	~		|
+
+Cost per personnel A=
+	173723
+	~	Dollar/Personnel
+	~	https://www.cbo.gov/publication/49764
+		 \
+		https://www.veteransunited.com/money/cbo-report-shows-military-personnel-co\
+		sts-spiraling-out-of-control/
+	|
+
+Cost per personnel B=
+	43466.4
+	~	Dollar/Personnel
+	~	https://www.cbo.gov/publication/49764
+		 \
+		https://www.veteransunited.com/money/cbo-report-shows-military-personnel-co\
+		sts-spiraling-out-of-control/
+	|
+
+UAS budget A= INTEG (
+	Increase in UAS budget A,
+		initial UAS budget A)
+	~	Dollar
+	~		|
+
+operators per UAS A=
+	Base operators needed A/AI Development A * One Technology
+	~	Personnel/Capability
+	~		|
+
+operators per UAS B=
+	(Base operators needed B/AI Development B) * One Technology
+	~	Personnel/Capability
+	~		|
+
+New maintenance personnel needed A=
+	maintainers per UAS A * UAS stock A
+	~	Personnel
+	~		|
+
+New maintenance personnel needed B=
+	maintainers per UAS B * UAS stock B
+	~	Personnel
+	~		|
+
+New operating personnel needed A=
+	operators per UAS A * UAS stock A
+	~	Personnel
+	~		|
+
+New operating personnel needed B=
+	operators per UAS B * UAS stock B
+	~	Personnel
+	~		|
+
+Potential autonomous capabilities due to mil budget A=
+	(UAS budget A - Total UAS personnel Cost A) * Initial autonomous capabilities per dollar A
+	~	Capability
+	~		|
+
+Base operators needed A=
+	6.07175
+	~	Personnel/Capability
+	~	It takes up to four drones to provide 24-hour coverage for a single combat \
+		air patrol. Although the aircraft are unmanned, they require lots of \
+		personnel to fly them by remote control and provide support on the ground \
+		— about 400 to 500 people for each combat air patrol. \
+		https://www.washingtonpost.com/world/national-security/drone-combat-mission\
+		s-may-be-scaled-back-eventually-air-force-chief-says/2013/11/13/470deda4-4c\
+		97-11e3-b692-e722f1795169_story.html
+	|
+
+Base operators needed B=
+	0.972318
+	~	Personnel/Capability
+	~	It takes up to four drones to provide 24-hour coverage for a single combat \
+		air patrol. Although the aircraft are unmanned, they require lots of \
+		personnel to fly them by remote control and provide support on the ground \
+		— about 400 to 500 people for each combat air patrol. \
+		https://www.washingtonpost.com/world/national-security/drone-combat-mission\
+		s-may-be-scaled-back-eventually-air-force-chief-says/2013/11/13/470deda4-4c\
+		97-11e3-b692-e722f1795169_story.html
+	|
+
+Personnel retiring B=
+	Personnel B / Time in service B
+	~	Personnel/Year
+	~		|
+
+New Personnel to be trained A=
+	IF THEN ELSE( (Autonomy Gap A > 0 ),
+	(New maintenance personnel needed A + New operating personnel needed A) / Time to recruit A\
+		, 0 )
+	~	Personnel/Year
+	~		|
+
+New Personnel to be trained B=
+	IF THEN ELSE( Autonomy Gap B > 0  , (New maintenance personnel needed B + New operating personnel needed B\
+		) / Time to recruit B , 0 )
+	~	Personnel/Year
+	~		|
+
+Time to recruit B=
+	1.15663
+	~	Year
+	~		|
+
+Time to train A=
+	2.72306
+	~	Year
+	~		|
+
+Time to train B=
+	1.35797
+	~	Year
+	~		|
+
+Personnel under training A= INTEG (
+	New Personnel to be trained A-New trained personnel A,
+		Initial Personnel under training A)
+	~	Personnel
+	~		|
+
+Initial Personnel A=
+	(Base operators needed A + maintainers per UAS A) * Initial UAS stock A
+	~	Personnel
+	~		|
+
+Personnel A= INTEG (
+	New trained personnel A-Personnel retiring A,
+		Initial Personnel A)
+	~	Personnel
+	~		|
+
+Training cost per personnel A=
+	13881.6
+	~	Dollar/Personnel
+	~	https://www.army.mil/article/207956/opat_reducing_trainee_attrition_avoidin\
+		g_millions_in_wasted_training_dollars_officials_say, 50000 in total
+	|
+
+Training cost per personnel B=
+	5887.45
+	~	Dollar/Personnel
+	~	https://www.army.mil/article/207956/opat_reducing_trainee_attrition_avoidin\
+		g_millions_in_wasted_training_dollars_officials_say, 50000 in total
+	|
+
+Initial Personnel B=
+	(Base operators needed B + maintainers per UAS B) * Initial UAS stock A
+	~	Personnel
+	~		|
+
+Initial Personnel under training A=
+	(Base operators needed A + maintainers per UAS A) * Initial UAS stock A
+	~	Personnel
+	~		|
+
+Personnel under training B= INTEG (
+	New Personnel to be trained B-New trained personnel B,
+		Initial Personnel under training B)
+	~	Personnel
+	~		|
+
+Personnel B= INTEG (
+	New trained personnel B-Personnel retiring B,
+		Initial Personnel B)
+	~	Personnel
+	~		|
+
+Initial Personnel under training B=
+	(Base operators needed B + maintainers per UAS B) * Initial UAS stock B
+	~	Personnel
+	~		|
+
+maintainers per UAS A=
+	2.78364
+	~	Personnel/Capability
+	~		|
+
+Time to recruit A=
+	1.18344
+	~	Year
+	~		|
+
+Time in service A=
+	17.0035
+	~	Year
+	~		|
+
+Personnel retiring A=
+	Personnel A / Time in service A
+	~	Personnel/Year
+	~		|
+
+Time in service B=
+	16.8925
+	~	Year
+	~		|
+
+UAS budget B= INTEG (
+	Increase in UAS budget B,
+		Initial UAS budget B)
+	~	Dollar
+	~		|
+
+initial UAS budget A=
+	initial percentage of military budget for autonomous systems A * Total budget for military A
+	~	Dollar
+	~		|
+
+Bias in estimating domestic UAS B=
+	0.868564
+	~	Dmnl
+	~		|
+
+Actual effectiveness UAS B=
+	(effectiveness UAS under development B * UAS under development B + effectiveness UAS stock B\
+		  * Bias in estimating domestic UAS B
+	 * UAS stock B) / (UAS stock B* Bias in estimating domestic UAS B  + UAS under development B\
+		)
+	~	Technology
+	~		|
+
+Estimated domestic UAS B=
+	(( UAS stock B * effectiveness UAS under development B+ UAS under development B * effectiveness UAS stock B\
+		) * Bias in estimating domestic UAS B
+	) / One Technology
+	~	Capability
+	~		|
+
+One Technology=
+	1
+	~	Technology
+	~		|
+
+Potential capabilities due to military budget A=
+	MAX((Total budget for military A - UAS budget A) * Initial capabilities per dollar A\
+		, 0)
+	~	Capability
+	~		|
+
+New total budget for military needed A=
+	(UAS budget A + Total budget for military A - initial UAS budget A)
+	~	Dollar
+	~		|
+
+Factor of superiority A=
+	MAX(Perceived average effectiveness UAS B by A / Actual effectiveness UAS A, 0)
+	~	Dmnl
+	~		|
+
+Initial level of tech sophistication B=
+	0.0539876
+	~	Technology
+	~		|
+
+Actual effectiveness UAS A=
+	(effectiveness UAS under development A * UAS under development A + effectiveness UAS stock A\
+		 * Bias in estimating domestic UAS A * UAS stock A) / (UAS stock A* Bias in estimating domestic UAS A\
+		  + UAS under development A)
+	~	Technology
+	~		|
+
+Initial tech sophistication under development A=
+	0.270889
+	~	Technology
+	~		|
+
+Initial tech sophistication under development B=
+	0.235039
+	~	Technology
+	~		|
+
+effectiveness UAS stock B=
+	(UAS stock level of tech sophistication B * weight tech sophistication B + UAS Stock level of autonomy B\
+		 * weight autonomy B)
+	~	Technology
+	~		|
+
+effectiveness UAS under development A=
+	(UAS under development level of tech sophistication A * weight tech sophistication A\
+		 + UAS under development level of Autonomy A * weight autonomy A)
+	~	Technology
+	~		|
+
+effectiveness UAS under development B=
+	(UAS under development level of tech sophistication B* weight tech sophistication B \
+		+ UAS under development level of Autonomy B
+	 * weight autonomy B)
+	~	Technology
+	~		|
+
+Initial capabilities A=
+	160256
+	~	Capability
+	~	https://www.globalfirepower.com/aircraft-total.php
+	|
+
+Other mil capabilities stock A= INTEG (
+	New other military capabilities A-Phasing out old military capabilities A,
+		Initial capabilities A)
+	~	Capability
+	~		|
+
+Change in tech sophistication A=
+	DELAY3I(New change in tech sophistication A, Average procurement delay A, UAS under development level of tech sophistication A\
+		/Average procurement delay A)
+	~	Technology/Year
+	~		|
+
+GDP A= INTEG (
+	GDP growth A,
+		Initial GDP A)
+	~	Dollar
+	~		|
+
+GDP B= INTEG (
+	GDP growth B,
+		Initial GDP B)
+	~	Dollar
+	~		|
+
+GDP growth A=
+	GDP growth rate A * GDP A
+	~	Dollar/Year
+	~		|
+
+GDP growth B=
+	GDP growth rate B * GDP B
+	~	Dollar/Year
+	~		|
+
+GDP growth rate A=
+	0.024191
+	~	1/Year
+	~		|
+
+New change in tech sophistication A=
+	Tech Development A / Average procurement delay A
+	~	Technology/Year
+	~		|
+
+Desired UAS A=
+	Estimated opposing UAS A * Desired margin of superiority A/ Time to change desired margin of superiority A\
+		 * One year
+	~	Capability
+	~		|
+
+Factor of superiority B=
+	MAX(Perceived average effectiveness UAS A by B / Actual effectiveness UAS B, 0)
+	~	Dmnl
+	~	rename so that less confusing
+	|
+
+Total budget for military A=
+	GDP A * Initial Defense budget as part of GDP A
+	~	Dollar
+	~		|
+
+New percentage of GDP A=
+	New total budget for military needed A / GDP A
+	~	Dmnl
+	~		|
+
+New percentage of GDP B=
+	New total budget for military needed B / GDP B
+	~	Dmnl
+	~		|
+
+New total budget for military needed B=
+	(UAS budget B + Total budget for military B - Initial UAS budget B)
+	~	Dollar
+	~		|
+
+UAS stock level of tech sophistication B= INTEG (
+	Change in tech sophistication B-Increase in average tech sophistiaction B,
+		Initial level of tech sophistication B)
+	~	Technology
+	~		|
+
+Initial capabilities B=
+	41745.4
+	~	Capability
+	~	https://www.globalfirepower.com/aircraft-total.php
+	|
+
+Other mil capabilities stock B= INTEG (
+	New other military capabilities B-Phasing out old military capabilities B,
+		Initial capabilities B)
+	~	Capability
+	~		|
+
+Initial capabilities per dollar B=
+	Initial capabilities B / Initial GDP B / (Initial Defense budget as part of GDP B * \
+		(1-initial percentage of military budget for autonomous systems B
+	))
+	~	Capability/Dollar
+	~		|
+
+Change in tech sophistication B=
+	DELAY3I(New change in tech sophistication B, Average procurement delay B, UAS under development level of tech sophistication B\
+		/Average procurement delay B)
+	~	Technology/Year
+	~		|
+
+Perceived average effectiveness UAS A by B=
+	(effectiveness UAS under development A * Sensitivity to opposing UAS production B * \
+		UAS under development A + effectiveness UAS stock A* Bias in estimating opposing UAS B\
+		 * UAS stock A) / (UAS stock A* Bias in estimating opposing UAS B  + Sensitivity to opposing UAS production B\
+		 *UAS under development A)
+	~	Technology
+	~		|
+
+Desired UAS B=
+	Estimated opposing UAS B *Desired margin of superiority B / Time to change desired margin of superiority B\
+		 * One year
+	~	Capability
+	~		|
+
+weight tech sophistication A=
+	1-weight autonomy A
+	~	Dmnl
+	~		|
+
+Desired margin of superiority B=
+	MIN(MAX((Factor of superiority B + personnel ratio B + capability ratio B)/3 , 1), 6\
+		)
+	~	Dmnl
+	~		|
+
+Increase in average tech sophistiaction A=
+	UAS stock level of tech sophistication A / Average procurement delay A
+	~	Technology/Year
+	~		|
+
+Initial autonomous capabilities per dollar B=
+	Initial UAS stock B / Initial GDP B / (Initial Defense budget as part of GDP B*initial percentage of military budget for autonomous systems B
+	)
+	~	Capability/Dollar
+	~		|
+
+effectiveness UAS stock A=
+	(UAS stock level of tech sophistication A * weight tech sophistication A + UAS Stock level of autonomy A\
+		 * weight autonomy A)
+	~	Technology
+	~		|
+
+Initial GDP A=
+	1.19475e+13
+	~	Dollar
+	~		|
+
+Initial GDP B=
+	1.36793e+12
+	~	Dollar
+	~		|
+
+UAS under development level of tech sophistication A= INTEG (
+	New change in tech sophistication A-Change in tech sophistication A,
+		Initial tech sophistication under development A)
+	~	Technology
+	~		|
+
+UAS under development level of tech sophistication B= INTEG (
+	New change in tech sophistication B-Change in tech sophistication B,
+		Initial tech sophistication under development B)
+	~	Technology
+	~		|
+
+Tech Development B=
+	Initial tech sophistication under development B + (1- Initial tech sophistication under development B\
+		 ) / (1+Q tech B*EXP(-1*Time/One year)^(1/v tech B))
+	~	Technology
+	~		|
+
+GDP growth rate B=
+	0.0608926
+	~	1/Year
+	~		|
+
+Initial level of tech sophistication A=
+	0.134421
+	~	Technology
+	~		|
+
+Total budget for military B=
+	GDP B * Initial Defense budget as part of GDP B
+	~	Dollar
+	~		|
+
+Tech Development A=
+	Initial tech sophistication under development A + (1- Initial tech sophistication under development A\
+		 ) / (1+Q tech A*EXP(-1*Time/One year)^(1/v tech A))
+	~	Technology
+	~		|
+
+Increase in average tech sophistiaction B=
+	UAS stock level of tech sophistication B / Average procurement delay B
+	~	Technology/Year
+	~		|
+
+weight autonomy B=
+	0.842415
+	~	Dmnl
+	~		|
+
+weight autonomy A=
+	0.672453
+	~	Dmnl
+	~		|
+
+Perceived average effectiveness UAS B by A=
+	(effectiveness UAS under development B * Sensitivity to opposing UAS production A * \
+		UAS under development B + effectiveness UAS stock B
+	* Bias in estimating opposing UAS A * UAS stock B) / (UAS stock B* Bias in estimating opposing UAS A\
+		  + Sensitivity to opposing UAS production A
+	 *UAS under development B)
+	~	Technology
+	~		|
+
+UAS stock level of tech sophistication A= INTEG (
+	Change in tech sophistication A-Increase in average tech sophistiaction A,
+		Initial level of tech sophistication A)
+	~	Technology
+	~		|
+
+weight tech sophistication B=
+	1-weight autonomy B
+	~	Dmnl
+	~		|
+
+Needed UAS B=
+	MAX(Desired UAS B - Estimated domestic UAS B, 0)
+	~	Capability
+	~		|
+
+initial percentage of military budget for autonomous systems B=
+	0.528717
+	~	Dmnl
+	~		|
+
+Autonomy Gap B=
+	MAX(Needed autonomous capabilites due to arms race B - Difference between size autonomous army and potential B\
+		, 0)
+	~	Capability
+	~		|
+
+Average procurement delay other cap B=
+	8.72365
+	~	Year
+	~		|
+
+Initial UAS under development B=
+	MAX(Difference between size autonomous army and potential B, 0)
+	~	Capability
+	~		|
+
+Difference between size army and potential B=
+	MAX(Potential capabilities due to military budget B - Other mil capabilities stock B\
+		, 0)
+	~	Capability
+	~		|
+
+Ìnitial other mil cap under development B=
+	MAX ( Difference between size army and potential B , 0 )
+	~	Capability
+	~	2500 + 500+ 500 + 500
+	|
+
+Needed UAS A=
+	MAX(Desired UAS A - Estimated domestic UAS A, 0)
+	~	Capability
+	~		|
+
+Initial Defense budget as part of GDP B=
+	0.0560361
+	~	Dmnl
+	~	https://milex.sipri.org/sipri USA 2019
+	|
+
+Difference between size autonomous army and potential B=
+	MAX(Potential autonomous capabilities due to mil budget B - UAS stock B, 0)
+	~	Capability
+	~		|
+
+Needed autonomous capabilites due to arms race B=
+	Desired UAS B - Estimated domestic UAS B
+	~	Capability
+	~		|
+
+Needed budget for autonomous capabilities increase due to arms race B=
+	(Total UAS personnel Cost B+ (Autonomy Gap B)  / (Initial autonomous capabilities per dollar B\
+		)) / One year
+	~	Dollar/Year
+	~	Actual effectiveness UAS B * (Total UAS personnel Cost B+ (Autonomy Gap B)  \
+		/ (Initial autonomous capabilities per dollar B))
+	|
+
+Potential autonomous capabilities due to mil budget B=
+	(UAS budget B- Total UAS personnel Cost B) * Initial autonomous capabilities per dollar B
+	~	Capability
+	~		|
+
+Average lifetime of capabilities B=
+	13.4124
+	~	Year
+	~		|
+
+New other military capabilities under development B=
+	Difference between size army and potential B/Capability procurement speed B
+	~	Capability/Year
+	~		|
+
+New other military capabilities B=
+	DELAY3I( New other military capabilities under development B, Average procurement delay other cap B\
+		 ,Other mil capabilities under development B / Average procurement delay other cap B\
+		 )
+	~	Capability/Year
+	~		|
+
+Capability procurement speed B=
+	8.67399
+	~	Year
+	~		|
+
+Other mil capabilities under development B= INTEG (
+	New other military capabilities under development B-New other military capabilities B\
+		,
+		Ìnitial other mil cap under development B)
+	~	Capability
+	~		|
+
+Initial UAS budget B=
+	initial percentage of military budget for autonomous systems B * Total budget for military B
+	~	Dollar
+	~		|
+
+Potential capabilities due to military budget B=
+	(Total budget for military B - UAS budget B) * Initial capabilities per dollar B
+	~	Capability
+	~		|
+
+Phasing out old military capabilities B=
+	Other mil capabilities stock B/ Average lifetime of capabilities B
+	~	Capability/Year
+	~		|
+
+Needed autonomous capabilites due to arms race A=
+	Desired UAS A - Estimated domestic UAS A
+	~	Capability
+	~		|
+
+Autonomy Gap A=
+	MAX(Needed autonomous capabilites due to arms race A - Difference between size autonomous army and potential A\
+		, 0)
+	~	Capability
+	~		|
+
+Initial level of autonomy B=
+	0.0617085
+	~	Technology
+	~	Sheridan & Verplank, 1978
+	|
+
+Initial level of autonomy under development B=
+	0.22637
+	~	Technology
+	~	Sheridan & Verplank, 1978
+	|
+
+AI Development B=
+	IF THEN ELSE( Regulation > 0, MIN(Initial level of autonomy under development B + (1\
+		- Initial level of autonomy under development B ) / (1+Q AI B*EXP(-1*Time/One year)\
+		^(1/v AI B)), Regulation), Initial level of autonomy under development B + (1- Initial level of autonomy under development B\
+		 ) / (1+Q AI B*EXP(-1*Time/One year)^(1/v AI B)))
+	~	Technology
+	~	less: ([(0,0)-(10,10)],(0,0.25),(5,0.5),(10,0.7),(15,0.8),(20,0.9),(25,1),(30,1))
+		
+		same: ([(0,0)-(10,10)],(0,0.25),(5,0.5),(10,1),(15,1),(20,1),(25,1),(30,1))
+		
+		more: ([(0,0)-(10,10)],(0,1),(15,1),(25,0.5),(30,0.25) )
+	|
+
+Difference between size autonomous army and potential A=
+	MAX(Potential autonomous capabilities due to mil budget A - UAS stock A, 0)
+	~	Capability
+	~		|
+
+initial percentage of military budget for autonomous systems A=
+	0.485001
+	~	Dmnl
+	~		|
+
+Change in Autonomy B=
+	DELAY3I(New Change in Autonomy B, Average procurement delay B, UAS under development level of Autonomy B\
+		/Average procurement delay B)
+	~	Technology/Year
+	~		|
+
+Increase in average level of autonomy B=
+	UAS Stock level of autonomy B / Average procurement delay B
+	~	Technology/Year
+	~		|
+
+Initial autonomous capabilities per dollar A=
+	Initial UAS stock A / Initial GDP A / (Initial Defense budget as part of GDP A*initial percentage of military budget for autonomous systems A\
+		)
+	~	Capability/Dollar
+	~		|
+
+UAS Stock level of autonomy B= INTEG (
+	Change in Autonomy B-Increase in average level of autonomy B,
+		Initial level of autonomy B)
+	~	Technology
+	~		|
+
+UAS under development level of Autonomy B= INTEG (
+	New Change in Autonomy B-Change in Autonomy B,
+		Initial level of autonomy under development B)
+	~	Technology
+	~		|
+
+Estimated opposing UAS B=
+	(( DELAY1( UAS under development A * effectiveness UAS under development A*  Sensitivity to opposing UAS production B\
+		 , Time to perceive opposing UAS B ) + DELAY1 ( UAS stock A * effectiveness UAS stock A\
+		 , Time to perceive opposing UAS B ) ) * Bias in estimating opposing UAS B) / One Technology
+	~	Capability
+	~	( DELAY1( Arms under development A * Sensitivity to opposing arms \
+		production B , Time to perceive opposing arms B ) + DELAY1 ( Arms stock A \
+		, Time to perceive opposing arms B ) ) * Bias in estimating opposing arms B
+	|
+
+New other military capabilities A=
+	DELAY3I( New other military capabilities under development A, Average procurement delay other cap A\
+		 ,Other mil capabilities under development A / Average procurement delay other cap A\
+		 )
+	~	Capability/Year
+	~		|
+
+New other military capabilities under development A=
+	Difference between size army and potential A/Capability procurement speed A
+	~	Capability/Year
+	~		|
+
+Ìnitial other mil cap under development A=
+	MAX ( Difference between size army and potential A , 0 )
+	~	Capability
+	~	2500 + 500+ 500 + 500
+	|
+
+Average lifetime of capabilities A=
+	25.378
+	~	Year
+	~		|
+
+Average procurement delay other cap A=
+	4.6444
+	~	Year
+	~		|
+
+Other mil capabilities under development A= INTEG (
+	New other military capabilities under development A-New other military capabilities A\
+		,
+		Ìnitial other mil cap under development A)
+	~	Capability
+	~		|
+
+One year=
+	1
+	~	Year
+	~		|
+
+Capability procurement speed A=
+	3.98604
+	~	Year
+	~		|
+
+Initial capabilities per dollar A=
+	Initial capabilities A / Initial GDP A / (Initial Defense budget as part of GDP A * \
+		(1-initial percentage of military budget for autonomous systems A))
+	~	Capability/Dollar
+	~		|
+
+Initial Defense budget as part of GDP A=
+	0.0542133
+	~	Dmnl
+	~	https://milex.sipri.org/sipri USA 2019
+	|
+
+Difference between size army and potential A=
+	MAX(Potential capabilities due to military budget A - Other mil capabilities stock A\
+		, 0)
+	~	Capability
+	~		|
+
+Phasing out old military capabilities A=
+	Other mil capabilities stock A/ Average lifetime of capabilities A
+	~	Capability/Year
+	~		|
+
+AI Development A=
+	IF THEN ELSE( Regulation > 0, MIN(Initial level of autonomy under development A + (1\
+		- Initial level of autonomy under development A ) / (1+Q AI A*EXP(-1*Time / One year\
+		)^(1/v AI A)), Regulation), Initial level of autonomy under development A + (1- Initial level of autonomy under development A\
+		 ) / (1+Q AI A*EXP(-1*Time / One year)^(1/v AI A)))
+	~	Technology
+	~	([(0,0)-(10,10)],(0,0.25),(5,0.5),(10,1),(15,1),(20,1),(25,1),(30,1))
+		
+		([(0,0)-(10,10)],(0,0.25),(30,1) )
+	|
+
+New UAS under development A=
+	MAX(Needed UAS A / Time to authorize UAS development A, Difference between size autonomous army and potential A\
+		/ Time to authorize UAS development A)
+	~	Capability/Year
+	~	MAX ( Desired arms A - Estimated domestic arms A / Time to authorize arms \
+		development A , Difference between size autonomous army and potential A)
+		
+		IF THEN ELSE( Difference between size army and potential A > 0, MAX ( ( Desired arms \
+		A - Estimated domestic arms A ) / Time to authorize arms development A, 0 \
+		) , 0)
+		
+		IF THEN ELSE( Actual average level of autonomy A >0.8, 0, MAX ( ( Desired \
+		arms A - Estimated domestic arms A ) / Time to authorize arms development \
+		A, 0 ))
+	|
+
+Change in Autonomy A=
+	DELAY3I(New Change in Autonomy A, Average procurement delay A, UAS under development level of Autonomy A\
+		/Average procurement delay A)
+	~	Technology/Year
+	~		|
+
+Increase in average level of autonomy A=
+	UAS Stock level of autonomy A / Average procurement delay A
+	~	Technology/Year
+	~		|
+
+Initial level of autonomy A=
+	0.143335
+	~	Technology
+	~	Sheridan & Verplank, 1978
+	|
+
+UAS Stock level of autonomy A= INTEG (
+	Change in Autonomy A-Increase in average level of autonomy A,
+		Initial level of autonomy A)
+	~	Technology
+	~		|
+
+Initial level of autonomy under development A=
+	0.277112
+	~	Technology
+	~	Sheridan & Verplank, 1978
+	|
+
+UAS under development level of Autonomy A= INTEG (
+	New Change in Autonomy A-Change in Autonomy A,
+		Initial level of autonomy under development A)
+	~	Technology
+	~		|
+
+UAS stock A= INTEG (
+	New UAS A-Phasing out old UAS A,
+		Initial UAS stock A)
+	~	Capability
+	~		|
+
+Time to perceive opposing UAS B=
+	0.447551
+	~	Year
+	~		|
+
+Estimated opposing UAS A=
+	(( DELAY1( UAS under development B * effectiveness UAS under development B * Sensitivity to opposing UAS production A\
+		 , Time to perceive opposing UAS A ) + DELAY1 ( UAS stock B * effectiveness UAS stock B\
+		, Time to perceive opposing UAS A ) ) * Bias in estimating opposing UAS A) / One Technology
+	~	Capability
+	~		|
+
+Time to perceive opposing UAS A=
+	0.508364
+	~	Year
+	~		|
+
+UAS stock B= INTEG (
+	New UAS B-Phasing out old UAS B,
+		Initial UAS stock B)
+	~	Capability
+	~		|
+
+UAS under development A= INTEG (
+	New UAS under development A-New UAS A,
+		Initial UAS under development A)
+	~	Capability
+	~		|
+
+UAS under development B= INTEG (
+	New UAS under development B-New UAS B,
+		Initial UAS under development B)
+	~	Capability
+	~		|
+
+Average life of UAS A=
+	24.2312
+	~	Year
+	~		|
+
+Average life of UAS B=
+	16.9635
+	~	Year
+	~		|
+
+Average procurement delay A=
+	5.66224
+	~	Year
+	~		|
+
+Average procurement delay B=
+	6.62916
+	~	Year
+	~		|
+
+Bias in estimating domestic UAS A=
+	0.909136
+	~	Dmnl
+	~		|
+
+Bias in estimating opposing UAS A=
+	1.10186
+	~	Dmnl
+	~		|
+
+Bias in estimating opposing UAS B=
+	1.14489
+	~	Dmnl
+	~		|
+
+Desired margin of superiority A=
+	MIN(MAX((Factor of superiority A + personnel ratio A + capability ratio A)/3 , 1), 6\
+		)
+	~	Dmnl
+	~		|
+
+Estimated domestic UAS A=
+	(( UAS stock A * effectiveness UAS under development A+ UAS under development A *effectiveness UAS stock A\
+		) * Bias in estimating domestic UAS A) / One Technology
+	~	Capability
+	~		|
+
+Initial UAS stock A=
+	3658.97
+	~	Capability
+	~	https://www.wdmma.org/united-states-air-force.php
+	|
+
+Initial UAS stock B=
+	648.359
+	~	Capability
+	~		|
+
+Initial UAS under development A=
+	MAX ( Difference between size autonomous army and potential A , 0 )
+	~	Capability
+	~		|
+
+New UAS A=
+	UAS under development A / Average procurement delay A
+	~	Capability/Year
+	~		|
+
+New UAS B=
+	UAS under development B / Average procurement delay B
+	~	Capability/Year
+	~		|
+
+New UAS under development B=
+	MAX(Needed UAS B / Time to authorize UAS development B, Difference between size autonomous army and potential B\
+		/ Time to authorize UAS development B)
+	~	Capability/Year
+	~		|
+
+Phasing out old UAS A=
+	UAS stock A / Average life of UAS A
+	~	Capability/Year
+	~		|
+
+Phasing out old UAS B=
+	UAS stock B / Average life of UAS B
+	~	Capability/Year
+	~		|
+
+Sensitivity to opposing UAS production A=
+	1.08378
+	~	Dmnl
+	~		|
+
+Sensitivity to opposing UAS production B=
+	1.07492
+	~	Dmnl
+	~		|
+
+Time to authorize UAS development A=
+	1.24763
+	~	Year
+	~		|
+
+Time to authorize UAS development B=
+	1.06917
+	~	Year
+	~		|
+
+Time to change desired margin of superiority A=
+	1.03753
+	~	Year
+	~		|
+
+Time to change desired margin of superiority B=
+	0.890815
+	~	Year
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 30
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER=
+	TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.125
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Arms Race
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-128-255|-1--1--1|-1--1--1|96,96,64,0
+10,1,UAS under development A,557,119,46,23,3,131,0,2,0,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+10,2,UAS stock A,781,118,43,23,3,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+12,3,48,320,118,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+1,4,6,1,4,0,0,22,0,0,0,-1--1--1,,1|(455,118)|
+1,5,6,3,100,0,0,22,0,0,0,-1--1--1,,1|(358,118)|
+11,6,0,393,118,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,7,New UAS under development A,393,145,54,19,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+1,8,10,2,4,0,0,22,0,0,0,-1--1--1,,1|(705,118)|
+1,9,10,1,100,0,0,22,0,0,0,-1--1--1,,1|(631,118)|
+11,10,0,666,118,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,11,New UAS A,666,149,43,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+12,12,48,979,118,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+1,13,15,12,4,0,0,22,0,0,0,-1--1--1,,1|(935,118)|
+1,14,15,2,100,0,0,22,0,0,0,-1--1--1,,1|(856,118)|
+11,15,0,895,118,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,16,Phasing out old UAS A,895,149,62,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+10,17,Estimated domestic UAS A,689,-20,62,19,8,3,17,2,0,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+10,18,Desired UAS A,748,-122,50,11,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+10,19,Estimated opposing UAS A,1167,158,62,19,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+10,20,Time to authorize UAS development A,264,36,72,19,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-0-255,0,0,0,0,0,0
+10,21,Average procurement delay A,676,73,67,19,8,3,0,6,0,0,0,0,0-0-0,128-192-255,|||0-0-255,0,0,0,0,0,0
+10,22,Bias in estimating opposing UAS A,1383,303,55,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-0-255,0,0,0,0,0,0
+1,23,21,11,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,24,Bias in estimating domestic UAS A,850,-25,55,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-0-255,0,0,0,0,0,0
+1,25,24,17,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,26,19,18,1,0,0,0,0,64,0,-1--1--1,,1|(1064,-28)|
+10,27,Time to change desired margin of superiority A,491,-142,74,19,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-0-255,0,0,0,0,0,0
+10,28,Desired margin of superiority A,681,-178,57,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-0-255,0,0,0,0,0,0
+1,29,27,18,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,30,22,19,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,31,Sensitivity to opposing UAS production A,1426,149,71,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-0-255,0,0,0,0,0,0
+1,32,1,17,1,17,0,0,0,64,0,-1--1--1,,1|(595,58)|
+1,33,2,17,1,17,0,0,0,64,0,-1--1--1,,1|(750,50)|
+10,34,Initial UAS under development A,558,156,55,19,8,3,1,6,0,0,0,0,0-0-0,255-128-0,|||128-128-192,0,0,0,0,0,0
+10,35,Initial UAS stock A,771,170,58,23,8,3,0,6,0,0,0,0,0-0-0,255-128-64,|||128-128-192,0,0,0,0,0,0
+1,36,34,1,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,37,35,2,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,38,Average life of UAS A,953,60,60,23,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-0-255,0,0,0,0,0,0
+1,39,38,16,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,40,1,11,1,0,0,0,0,64,0,-1--1--1,,1|(618,139)|
+1,41,2,16,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,42,31,19,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,43,UAS under development B,821,519,45,23,3,131,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,44,UAS stock B,1045,518,43,23,3,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,45,48,584,518,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,46,48,43,4,0,0,22,0,0,0,-1--1--1,,1|(733,518)|
+1,47,48,45,100,0,0,22,0,0,0,-1--1--1,,1|(636,518)|
+11,48,0,685,518,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,49,New UAS under development B,685,545,54,19,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,50,52,44,4,0,0,22,0,0,0,-1--1--1,,1|(969,518)|
+1,51,52,43,100,0,0,22,0,0,0,-1--1--1,,1|(895,518)|
+11,52,0,930,518,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,53,New UAS B,930,549,43,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,54,48,1243,518,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,55,57,54,4,0,0,22,0,0,0,-1--1--1,,1|(1199,518)|
+1,56,57,44,100,0,0,22,0,0,0,-1--1--1,,1|(1120,518)|
+11,57,0,1159,518,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,58,Phasing out old UAS B,1159,549,62,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,59,Estimated domestic UAS B,945,735,62,19,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,60,Desired UAS B,570,736,49,11,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,61,Estimated opposing UAS B,398,537,62,19,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,62,Time to authorize UAS development B,700,426,72,19,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+10,63,Average procurement delay B,930,602,67,19,8,3,0,6,0,0,0,0,0-0-0,128-192-255,|||0-128-0,0,0,0,0,0,0
+10,64,Bias in estimating opposing UAS B,241,679,55,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,65,62,49,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,66,63,53,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,67,61,60,1,0,0,0,0,64,0,-1--1--1,,1|(468,643)|
+10,68,Time to change desired margin of superiority B,416,815,74,19,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+10,69,Desired margin of superiority B,581,810,57,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,70,68,60,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,71,69,60,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,72,64,61,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,73,Sensitivity to opposing UAS production B,184,532,71,19,8,3,0,6,0,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,74,43,59,1,0,0,0,0,64,0,-1--1--1,,1|(842,603)|
+1,75,44,59,1,0,0,0,0,64,0,-1--1--1,,1|(1022,614)|
+10,76,Initial UAS under development B,846,475,55,19,8,3,0,6,0,0,0,0,0-0-0,255-128-64,|||64-128-128,0,0,0,0,0,0
+10,77,Initial UAS stock B,1046,452,58,23,8,131,0,6,0,0,0,0,0-0-0,255-128-64,|||64-128-128,0,0,0,0,0,0
+1,78,76,43,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,79,77,44,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,80,Average life of UAS B,1191,655,60,23,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+1,81,80,58,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,82,43,53,1,0,0,0,0,64,0,-1--1--1,,1|(882,539)|
+1,83,44,58,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,84,73,61,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,85,43,19,1,0,0,0,2,65,0,-1--1--1,|||0-0-0,1|(1033,357)|
+1,86,44,19,1,0,0,0,2,65,0,-1--1--1,|||0-0-0,1|(1143,370)|
+1,87,1,61,1,0,0,0,0,65,0,-1--1--1,,1|(401,287)|
+10,88,Time to perceive opposing UAS B,232,365,54,19,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+10,89,Time to perceive opposing UAS A,1305,9,55,19,8,3,0,6,0,0,0,0,0-0-0,128-255-255,|||0-0-255,0,0,0,0,0,0
+1,90,88,61,1,0,0,0,0,64,0,-1--1--1,,1|(306,426)|
+1,91,89,19,1,0,0,0,0,64,0,-1--1--1,,1|(1263,80)|
+1,92,2,61,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,93,28,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,94,Needed UAS A,419,7,59,12,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-0-255,0,0,0,0,0,0
+1,95,18,94,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,96,17,94,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,97,Needed UAS B,671,646,52,11,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,98,97,49,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,99,60,97,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,100,59,97,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,101,Difference between size autonomous army and potential A,543,226,80,28,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,102,101,34,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,103,Difference between size autonomous army and potential A,345,210,80,28,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,104,103,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,105,94,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,106,20,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,107,Difference between size autonomous army and potential B,611,587,80,28,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,108,107,49,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,109,Difference between size autonomous army and potential B,862,417,80,28,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,110,109,76,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,111,effectiveness UAS under development A,701,-63,73,19,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,112,111,17,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,113,effectiveness UAS stock B,1144,208,64,19,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,114,113,19,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,115,effectiveness UAS under development B,1178,67,73,19,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,116,115,19,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,117,effectiveness UAS stock A,373,627,64,19,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,118,117,61,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,119,effectiveness UAS under development A,429,473,73,19,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,120,119,61,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,121,effectiveness UAS stock B,1097,773,64,19,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,122,121,59,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,123,effectiveness UAS under development B,806,750,73,19,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,124,123,59,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,125,One Technology,400,579,54,15,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,126,125,61,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,127,125,19,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,128,125,17,1,17,0,0,0,64,0,-1--1--1,,1|(88,170)|
+1,129,125,59,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,130,One year,756,-93,39,11,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,131,130,18,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,132,One year,569,686,39,11,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,133,132,60,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,134,Bias in estimating domestic UAS B,945,773,55,19,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,135,134,59,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,136,Factor of superiority A,847,-262,46,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,137,136,28,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,138,Factor of superiority B,629,894,46,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,139,138,69,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,140,capability ratio A,625,-244,52,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,141,140,28,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,142,personnel ratio A,728,-261,52,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,143,142,28,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,144,capability ratio B,699,855,52,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,145,144,69,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,146,personnel ratio B,505,879,52,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,147,146,69,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,148,effectiveness UAS stock A,689,18,64,19,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,149,148,17,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Tech
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,81,0
+10,1,AI Development A,13,-608,60,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||255-0-0,0,0,0,0,0,0
+10,2,UAS under development level of Autonomy A,252,-546,72,26,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,3,UAS Stock level of autonomy A,562,-549,76,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,4,48,66,-545,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,5,7,4,100,0,0,22,0,192,0,-1--1--1,,1|(99,-545)|
+1,6,7,2,4,0,0,22,0,192,0,-1--1--1,,1|(157,-545)|
+11,7,0,128,-545,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,8,New Change in Autonomy A,128,-514,56,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,9,11,2,100,0,0,22,0,192,0,-1--1--1,,1|(361,-548)|
+1,10,11,3,4,0,0,22,0,192,0,-1--1--1,,1|(448,-548)|
+11,11,0,405,-548,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,12,Change in Autonomy A,405,-517,56,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,13,48,782,-549,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,14,16,3,100,0,0,22,0,192,0,-1--1--1,,1|(668,-549)|
+1,15,16,13,4,0,0,22,0,192,0,-1--1--1,,1|(741,-549)|
+11,16,0,705,-549,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,17,Increase in average level of autonomy A,705,-515,56,26,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,18,Initial level of autonomy A,581,-491,56,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+10,19,Initial level of autonomy under development A,255,-479,68,26,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+1,20,19,2,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,21,1,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,22,8,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,23,2,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,24,18,3,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,25,3,17,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,26,Average procurement delay A,705,-471,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,27,26,17,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,28,Average procurement delay A,405,-476,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,29,28,12,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,30,Average procurement delay A,128,-461,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,31,30,8,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,32,Time,-30,-503,29,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,33,32,1,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,34,AI Development B,88,-278,60,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||0-128-0,0,0,0,0,0,0
+10,35,UAS under development level of Autonomy B,370,-280,72,26,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,36,UAS Stock level of autonomy B,680,-283,76,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,37,48,184,-279,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,38,40,37,100,0,0,22,0,192,0,-1--1--1,,1|(217,-279)|
+1,39,40,35,4,0,0,22,0,192,0,-1--1--1,,1|(275,-279)|
+11,40,0,246,-279,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,41,New Change in Autonomy B,246,-248,56,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,42,44,35,100,0,0,22,0,192,0,-1--1--1,,1|(479,-282)|
+1,43,44,36,4,0,0,22,0,192,0,-1--1--1,,1|(566,-282)|
+11,44,0,523,-282,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,45,Change in Autonomy B,523,-256,50,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,46,48,900,-283,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,47,49,36,100,0,0,22,0,192,0,-1--1--1,,1|(796,-283)|
+1,48,49,46,4,0,0,22,0,192,0,-1--1--1,,1|(869,-283)|
+11,49,0,843,-283,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,50,Increase in average level of autonomy B,843,-257,77,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,51,Initial level of autonomy B,685,-232,56,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||0-128-0,0,0,0,0,0,0
+10,52,Initial level of autonomy under development B,373,-213,83,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||0-128-0,0,0,0,0,0,0
+1,53,52,35,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,54,34,41,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,55,41,45,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,56,35,45,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,57,51,36,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,58,36,50,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,59,Time,88,-237,29,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,60,59,34,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,61,Average procurement delay B,243,-334,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,62,61,41,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,63,Average procurement delay B,532,-322,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,64,63,45,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,65,Average procurement delay B,850,-351,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,66,65,50,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,67,UAS under development level of tech sophistication A,319,-928,72,34,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,68,UAS stock level of tech sophistication A,639,-929,88,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,69,71,67,100,0,0,22,0,192,0,-1--1--1,,1|(430,-928)|
+1,70,71,68,4,0,0,22,0,192,0,-1--1--1,,1|(516,-928)|
+11,71,0,475,-928,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,72,Change in tech sophistication A,475,-894,60,26,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,73,48,889,-929,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,74,76,68,100,0,0,22,0,192,0,-1--1--1,,1|(760,-929)|
+1,75,76,73,4,0,0,22,0,192,0,-1--1--1,,1|(842,-929)|
+11,76,0,799,-929,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,77,Increase in average tech sophistiaction A,799,-895,68,26,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,78,48,69,-930,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,79,81,78,100,0,0,22,0,192,0,-1--1--1,,1|(118,-930)|
+1,80,81,67,4,0,0,22,0,192,0,-1--1--1,,1|(208,-930)|
+11,81,0,163,-930,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,82,New change in tech sophistication A,163,-899,76,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,83,Tech Development A,7,-824,56,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||255-0-0,0,0,0,0,0,0
+10,84,Time,-66,-1005,29,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,85,84,83,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,86,Average procurement delay A,171,-980,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,87,86,82,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,88,83,82,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,89,Initial tech sophistication under development A,323,-860,73,27,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+1,90,89,67,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,91,Average procurement delay A,473,-993,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,92,91,72,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,93,82,72,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,94,67,72,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,95,Initial level of tech sophistication A,638,-871,64,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+1,96,95,68,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,97,68,77,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,98,Average procurement delay A,801,-977,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,99,98,77,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,100,UAS under development level of tech sophistication B,396,293,72,34,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,101,UAS stock level of tech sophistication B,716,292,88,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,102,104,100,100,0,0,22,0,192,0,-1--1--1,,1|(507,293)|
+1,103,104,101,4,0,0,22,0,192,0,-1--1--1,,1|(593,293)|
+11,104,0,552,293,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,105,Change in tech sophistication B,552,319,65,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,106,48,966,292,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,107,109,101,100,0,0,22,0,192,0,-1--1--1,,1|(837,292)|
+1,108,109,106,4,0,0,22,0,192,0,-1--1--1,,1|(919,292)|
+11,109,0,876,292,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,110,Increase in average tech sophistiaction B,876,318,82,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,111,48,146,291,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,112,114,111,100,0,0,22,0,192,0,-1--1--1,,1|(195,291)|
+1,113,114,100,4,0,0,22,0,192,0,-1--1--1,,1|(285,291)|
+11,114,0,240,291,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,115,New change in tech sophistication B,240,322,76,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,116,Tech Development B,12,187,67,31,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||0-128-0,0,0,0,0,0,0
+10,117,Time,-28,233,29,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,118,117,116,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,119,116,115,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,120,Initial tech sophistication under development B,396,345,73,27,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||0-128-0,0,0,0,0,0,0
+1,121,120,100,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,122,115,105,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,123,100,105,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,124,Initial level of tech sophistication B,714,358,68,26,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||0-128-0,0,0,0,0,0,0
+1,125,124,101,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,126,101,110,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,127,Average procurement delay B,257,383,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,128,127,115,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,129,Average procurement delay B,543,378,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,130,129,105,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,131,Average procurement delay B,857,370,68,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,132,131,110,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,133,effectiveness UAS under development A,303,-703,56,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,134,effectiveness UAS stock A,589,-687,56,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,135,weight autonomy A,433,-632,72,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+10,136,weight tech sophistication A,436,-710,60,26,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,137,135,133,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,138,136,133,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,139,135,134,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,140,136,134,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,141,67,133,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,142,2,133,1,0,0,0,0,192,0,-1--1--1,,1|(263,-627)|
+1,143,68,134,1,0,0,0,0,192,0,-1--1--1,,1|(634,-761)|
+1,144,3,134,1,0,0,0,0,192,0,-1--1--1,,1|(588,-630)|
+10,145,effectiveness UAS under development B,388,3,83,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,146,effectiveness UAS stock B,725,13,53,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,147,weight autonomy B,494,121,49,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+10,148,weight tech sophistication B,572,-15,65,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,149,147,145,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,150,148,145,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,151,147,146,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,152,148,146,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,153,35,145,1,0,0,0,0,192,0,-1--1--1,,1|(389,-109)|
+1,154,36,146,1,0,0,0,0,192,0,-1--1--1,,1|(710,-124)|
+1,155,101,146,1,0,0,0,0,192,0,-1--1--1,,1|(754,110)|
+1,156,100,145,1,0,0,0,0,192,0,-1--1--1,,1|(369,133)|
+10,157,Perceived average effectiveness UAS A by B,797,-727,72,34,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,158,133,157,1,0,0,0,0,192,0,-1--1--1,,1|(702,-768)|
+1,159,134,157,1,0,0,0,0,192,0,-1--1--1,,1|(732,-677)|
+10,160,UAS stock A,797,-675,58,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,161,160,157,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,162,UAS under development A,865,-741,60,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,163,162,157,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,164,Bias in estimating opposing UAS B,718,-729,70,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,165,164,157,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,166,Sensitivity to opposing UAS production B,803,-786,55,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,167,166,157,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,168,Actual effectiveness UAS A,994,-723,72,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,169,133,168,1,0,0,0,0,192,0,-1--1--1,,1|(894,-785)|
+1,170,134,168,1,0,0,0,0,192,0,-1--1--1,,1|(833,-623)|
+10,171,UAS stock A,992,-675,58,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,172,171,168,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,173,UAS under development A,1074,-722,60,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,174,173,168,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,175,Bias in estimating domestic UAS A,1008,-779,70,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,176,175,168,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,177,Perceived average effectiveness UAS B by A,970,0,75,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,178,Actual effectiveness UAS B,1149,-10,73,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,179,145,177,1,0,0,0,0,192,0,-1--1--1,,1|(728,-104)|
+1,180,146,177,1,0,0,0,0,192,0,-1--1--1,,1|(865,23)|
+1,181,145,178,1,0,0,0,0,192,0,-1--1--1,,1|(871,-135)|
+1,182,146,178,1,0,0,0,0,192,0,-1--1--1,,1|(991,57)|
+10,183,UAS stock B,984,-47,58,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,184,183,177,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,185,UAS under development B,1051,98,60,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,186,185,177,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,187,Bias in estimating opposing UAS A,943,104,70,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,188,187,177,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,189,Sensitivity to opposing UAS production A,904,60,55,27,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,190,189,177,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,191,UAS stock B,1153,-60,58,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,192,191,178,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,193,UAS under development B,1184,57,60,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,194,193,178,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,195,Factor of superiority B,1242,-199,56,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,196,157,195,1,0,0,0,0,192,0,-1--1--1,,1|(1206,-437)|
+1,197,178,195,1,0,0,0,0,192,0,-1--1--1,,1|(1236,-143)|
+10,198,Factor of superiority A,1031,-487,56,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,199,168,198,1,0,0,0,0,64,0,-1--1--1,,1|(1047,-608)|
+1,200,177,198,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,201,One year,-79,-306,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,202,135,136,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,203,147,148,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,204,Bias in estimating domestic UAS B,1237,17,70,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,205,204,178,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,206,Q AI B,-53,-226,34,10,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+10,207,v AI B,-122,-263,29,12,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+1,208,206,34,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,209,207,34,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,210,52,34,1,0,0,0,0,64,0,-1--1--1,,1|(214,-216)|
+1,211,120,116,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,212,Q tech B,-130,235,32,10,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+1,213,212,116,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,214,v tech B,-151,159,30,10,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+1,215,214,116,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,216,89,83,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,217,Q tech A,-81,-830,32,10,8,3,1,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,218,217,83,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,219,v tech A,-18,-767,30,10,8,3,1,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,220,219,83,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,221,19,1,1,1,0,0,0,64,0,-1--1--1,,1|(150,-571)|
+10,222,Q AI A,12,-665,25,10,8,3,1,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,223,222,1,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,224,v AI A,-97,-639,22,10,8,3,1,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,225,224,1,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,226,Regulation,-260,-433,39,10,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,227,226,34,1,0,0,0,0,64,0,-1--1--1,,1|(-121,-345)|
+1,228,226,1,1,0,0,0,0,64,0,-1--1--1,,1|(-147,-525)|
+10,229,One year,13,-567,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,230,229,1,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,231,One year,7,-783,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,232,231,83,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,233,One year,88,-237,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,234,233,34,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,235,One year,12,236,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,236,235,116,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Capability Planning
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,76,0
+10,1,Other mil capabilities under development A,-3379,836,76,26,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,2,Other mil capabilities stock A,-3117,834,58,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,3,48,-3684,839,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,4,6,3,100,0,0,22,0,192,0,-1--1--1,,1|(-3616,839)|
+1,5,6,1,4,0,0,22,0,192,0,-1--1--1,,1|(-3501,839)|
+11,6,0,-3553,839,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,7,New other military capabilities under development A,-3553,874,65,27,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,8,10,1,100,0,0,22,0,192,0,-1--1--1,,1|(-3280,835)|
+1,9,10,2,4,0,0,22,0,192,0,-1--1--1,,1|(-3210,835)|
+11,10,0,-3251,835,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,11,New other military capabilities A,-3251,869,60,26,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,12,48,-2848,834,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,13,15,2,100,0,0,22,0,192,0,-1--1--1,,1|(-3005,834)|
+1,14,15,12,4,0,0,22,0,192,0,-1--1--1,,1|(-2899,834)|
+11,15,0,-2946,834,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,16,Phasing out old military capabilities A,-2946,860,69,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,17,Initial Defense budget as part of GDP A,-3447,32,71,19,8,3,0,22,0,0,0,0,0-0-0,255-128-0,||I|255-0-0,0,0,0,0,0,0
+10,18,Total budget for military A,-3438,259,57,18,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,19,17,18,1,0,0,0,0,64,0,-1--1--1,,1|(-3515,189)|
+10,20,Difference between size army and potential A,-3615,667,71,27,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,21,Potential capabilities due to military budget A,-3624,533,85,18,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,22,Initial capabilities per dollar A,-3639,280,63,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,23,22,21,1,0,0,0,0,64,0,-1--1--1,,1|(-3655,400)|
+1,24,18,21,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,25,17,22,1,0,0,0,0,64,0,-1--1--1,,1|(-3601,110)|
+1,26,21,20,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,27,Capability procurement speed A,-3794,877,46,27,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||255-0-0,0,0,0,0,0,0
+1,28,27,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,29,20,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,30,2,20,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,31,Average lifetime of capabilities A,-2946,907,69,18,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||255-0-0,0,0,0,0,0,0
+1,32,31,16,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,33,2,16,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,34,Average procurement delay other cap A,-3251,908,74,18,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||255-0-0,0,0,0,0,0,0
+1,35,34,11,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,36,7,11,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,37,1,11,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,38,Ìnitial other mil cap under development A,-3397,889,56,26,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+1,39,20,38,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,40,38,1,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,41,Potential autonomous capabilities due to mil budget A,-2804,279,68,34,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,42,Initial autonomous capabilities per dollar A,-2889,412,76,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,43,42,41,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,44,17,42,1,0,0,0,0,64,0,-1--1--1,,1|(-3121,120)|
+10,45,initial percentage of military budget for autonomous systems A,-3383,413,88,26,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+10,46,Difference between size autonomous army and potential A,-2622,426,84,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,47,UAS stock A,-2585,363,58,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,48,47,46,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,49,41,46,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,50,Needed autonomous capabilites due to arms race A,-2740,669,76,34,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,51,Desired UAS A,-2805,748,35,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,52,51,50,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,53,Estimated domestic UAS A,-2612,772,67,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,54,53,50,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,55,Needed budget for autonomous capabilities increase due to arms race A,-2840,517,52,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,56,Autonomy Gap A,-2619,534,60,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,57,46,56,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,58,50,56,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,59,56,55,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,60,42,55,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,61,45,22,1,0,0,0,0,64,0,-1--1--1,,1|(-3521,371)|
+1,62,45,42,1,0,0,0,0,64,0,-1--1--1,,1|(-3131,386)|
+10,63,Other mil capabilities under development B,-642,895,76,26,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,64,Other mil capabilities stock B,-380,893,58,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,65,48,-947,898,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,66,68,65,100,0,0,22,0,192,0,-1--1--1,,1|(-879,898)|
+1,67,68,63,4,0,0,22,0,192,0,-1--1--1,,1|(-764,898)|
+11,68,0,-816,898,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,69,New other military capabilities under development B,-816,933,65,27,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,70,72,63,100,0,0,22,0,192,0,-1--1--1,,1|(-543,894)|
+1,71,72,64,4,0,0,22,0,192,0,-1--1--1,,1|(-473,894)|
+11,72,0,-514,894,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,73,New other military capabilities B,-514,920,65,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,74,48,-85,893,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,75,77,64,100,0,0,22,0,192,0,-1--1--1,,1|(-268,893)|
+1,76,77,74,4,0,0,22,0,192,0,-1--1--1,,1|(-149,893)|
+11,77,0,-209,893,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,78,Phasing out old military capabilities B,-209,928,70,27,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,79,Initial Defense budget as part of GDP B,-650,-173,71,19,8,3,0,22,0,0,0,0,0-0-0,255-128-0,||I|0-128-0,0,0,0,0,0,0
+10,80,Total budget for military B,-626,77,60,23,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,81,79,80,1,0,0,0,0,64,0,-1--1--1,,1|(-828,4)|
+10,82,Difference between size army and potential B,-878,726,84,27,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,83,Potential capabilities due to military budget B,-906,569,78,27,8,3,0,2,0,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,84,Initial capabilities per dollar B,-924,210,63,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,85,84,83,1,0,0,0,0,64,0,-1--1--1,,1|(-948,381)|
+1,86,80,83,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,87,79,84,1,0,0,0,0,64,0,-1--1--1,,1|(-845,-27)|
+1,88,83,82,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,89,Capability procurement speed B,-907,986,71,27,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+1,90,89,69,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,91,82,69,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,92,64,82,1,0,0,0,0,64,0,-1--1--1,,1|(-606,781)|
+10,93,Average lifetime of capabilities B,-209,966,69,18,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+1,94,93,78,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,95,64,78,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,96,Average procurement delay other cap B,-514,967,79,18,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+1,97,96,73,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,98,69,73,1,0,0,0,0,64,0,-1--1--1,,1|(-676,939)|
+1,99,63,73,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,100,Ìnitial other mil cap under development B,-656,988,83,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||0-128-0,0,0,0,0,0,0
+1,101,82,100,1,0,0,0,0,64,0,-1--1--1,,1|(-796,872)|
+1,102,100,63,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,103,Initial UAS budget B,-621,271,85,27,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||0-128-0,0,0,0,0,0,0
+10,104,Potential autonomous capabilities due to mil budget B,-330,403,80,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,105,Initial autonomous capabilities per dollar B,-382,219,79,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,106,105,104,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,107,79,105,1,0,0,0,0,64,0,-1--1--1,,1|(-480,-17)|
+10,108,initial percentage of military budget for autonomous systems B,-665,439,84,27,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,109,80,103,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,110,108,103,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,111,Difference between size autonomous army and potential B,196,397,88,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,112,104,111,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,113,Needed autonomous capabilites due to arms race B,25,716,85,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,114,Needed budget for autonomous capabilities increase due to arms race B,-120,525,109,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,115,Autonomy Gap B,89,590,60,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,116,111,115,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,117,113,115,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,118,115,114,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,119,105,114,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,120,108,84,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,121,108,105,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,122,UAS stock B,-134,610,58,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,123,122,111,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,124,Desired UAS B,71,810,35,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,125,124,113,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,126,Estimated domestic UAS B,-51,777,67,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,127,126,113,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,128,Initial GDP A,-3011,242,47,10,8,3,1,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+1,129,128,42,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,130,Initial capabilities A,-3788,258,50,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||255-0-0,0,0,0,0,0,0
+1,131,130,22,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,132,128,22,1,1,0,0,0,64,0,-1--1--1,,1|(-3317,288)|
+10,133,Initial capabilities B,-1034,138,50,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-128,|||0-128-0,0,0,0,0,0,0
+1,134,133,84,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,135,Initial GDP B,-198,258,47,10,8,3,1,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,136,135,105,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,137,135,84,1,1,0,0,0,64,0,-1--1--1,,1|(-553,270)|
+1,138,133,64,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,139,130,2,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,140,GDP B,-621,-34,43,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,141,48,-805,-40,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,142,144,141,100,0,0,22,0,192,0,-1--1--1,,1|(-778,-40)|
+1,143,144,140,4,0,0,22,0,192,0,-1--1--1,,1|(-706,-40)|
+11,144,0,-755,-40,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,145,GDP growth B,-755,-9,72,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,146,140,145,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,147,135,140,0,1,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,148,140,80,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,149,GDP A,-3304,148,43,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,150,48,-3468,145,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,151,153,150,100,0,0,22,0,192,0,-1--1--1,,1|(-3436,145)|
+1,152,153,149,4,0,0,22,0,192,0,-1--1--1,,1|(-3375,145)|
+11,153,0,-3409,145,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,154,GDP growth A,-3409,176,72,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,155,128,149,0,1,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,156,149,154,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,157,149,18,1,0,0,0,0,64,0,-1--1--1,,1|(-3356,213)|
+10,158,GDP growth rate A,-3425,105,45,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,159,158,154,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,160,GDP growth rate B,-755,32,45,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,161,160,145,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,162,One year,-3555,857,43,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,163,New total budget for military needed A,-3139,274,68,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,164,18,163,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,165,New percentage of GDP A,-3137,187,60,23,8,3,0,6,-1,0,0,0,0-0-0,128-0-255,|||255-0-0,0,0,0,0,0,0
+1,166,149,165,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,167,163,165,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,168,New total budget for military needed B,-188,43,73,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,169,New percentage of GDP B,-304,-116,60,18,8,3,0,6,-1,0,0,0,0-0-0,128-0-255,|||0-128-0,0,0,0,0,0,0
+1,170,168,169,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,171,140,169,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,172,Initial UAS stock A,-2881,352,44,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,173,172,42,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,174,Initial UAS stock B,-269,204,44,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,175,174,105,0,1,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,176,UAS budget A,-3348,538,47,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,177,48,-3070,536,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,178,180,177,100,0,0,22,0,192,0,-1--1--1,,1|(-3138,536)|
+1,179,180,176,4,0,0,22,0,192,0,-1--1--1,,1|(-3254,536)|
+11,180,0,-3202,536,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,181,Increase in UAS budget A,-3202,567,51,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,182,176,21,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,183,initial UAS budget A,-3350,341,59,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||255-0-0,0,0,0,0,0,0
+1,184,45,183,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,185,18,183,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,186,176,163,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,187,UAS budget B,-739,611,47,23,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,188,48,-403,609,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,189,191,188,100,0,0,22,0,192,0,-1--1--1,,1|(-487,609)|
+1,190,191,187,4,0,0,22,0,192,0,-1--1--1,,1|(-632,609)|
+11,191,0,-567,609,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,192,Increase in UAS budget B,-567,635,59,18,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,193,103,187,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,194,187,83,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,195,187,104,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,196,187,168,1,0,0,0,0,64,0,-1--1--1,,1|(-390,369)|
+1,197,80,168,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,198,Personnel under training A,-1887,298,54,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,199,Personnel A,-1692,286,43,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,200,48,-2108,291,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,201,203,200,100,0,0,22,0,192,0,-1--1--1,,1|(-2063,291)|
+1,202,203,198,4,0,0,22,0,192,0,-1--1--1,,1|(-1979,291)|
+11,203,0,-2023,291,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,204,New Personnel to be trained A,-2023,322,58,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,205,207,198,100,0,0,22,0,192,0,-1--1--1,,1|(-1813,289)|
+1,206,207,199,4,0,0,22,0,192,0,-1--1--1,,1|(-1758,289)|
+11,207,0,-1787,289,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,208,New trained personnel A,-1787,320,43,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+12,209,48,-1493,286,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,210,212,199,100,0,0,22,0,192,0,-1--1--1,,1|(-1615,286)|
+1,211,212,209,4,0,0,22,0,192,0,-1--1--1,,1|(-1536,286)|
+11,212,0,-1576,286,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,213,Personnel retiring A,-1576,317,58,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,214,Initial Personnel under training A,-1902,361,54,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||255-0-0,0,0,0,0,0,0
+10,215,Initial Personnel A,-1690,375,59,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||255-0-0,0,0,0,0,0,0
+10,216,New operating personnel needed A,-2234,257,58,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,217,New maintenance personnel needed A,-2234,349,58,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,218,216,204,1,0,0,0,0,192,0,-1--1--1,,1|(-2086,246)|
+1,219,217,204,1,0,0,0,0,192,0,-1--1--1,,1|(-2096,376)|
+10,220,Total UAS personnel Cost A,-1789,179,56,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,221,199,220,1,0,0,0,0,192,0,-1--1--1,,1|(-1738,229)|
+1,222,198,220,1,0,0,0,0,192,0,-1--1--1,,1|(-1848,236)|
+10,223,Cost per personnel A,-1650,100,62,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||255-0-0,0,0,0,0,0,0
+1,224,223,220,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,225,operators per UAS A,-2322,104,60,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,226,225,216,1,0,0,0,0,192,0,-1--1--1,,1|(-2239,198)|
+10,227,maintainers per UAS A,-2197,474,51,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||255-0-0,0,0,0,0,0,0
+1,228,227,217,1,0,0,0,0,192,0,-1--1--1,,1|(-2229,411)|
+10,229,AI Development A,-2312,65,61,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,230,229,225,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,231,Base operators needed A,-2172,137,57,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||255-0-0,0,0,0,0,0,0
+1,232,231,225,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,233,Time to recruit A,-1991,232,55,23,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||255-0-0,0,0,0,0,0,0
+10,234,Time to train A,-1777,238,49,23,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||255-0-0,0,0,0,0,0,0
+10,235,Time in service A,-1575,242,55,23,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||255-0-0,0,0,0,0,0,0
+1,236,214,198,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,237,215,199,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,238,233,204,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,239,234,208,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,240,235,213,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,241,198,208,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,242,199,213,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,243,UAS stock A,-2381,340,56,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,244,UAS stock A,-2356,251,56,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,245,231,214,1,0,0,0,0,64,0,-1--1--1,,1|(-2057,252)|
+10,246,Initial UAS stock A,-1877,423,43,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,247,246,214,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,248,227,214,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,249,231,215,1,0,0,0,0,64,0,-1--1--1,,1|(-1929,219)|
+10,250,Initial UAS stock A,-1675,422,43,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,251,250,215,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,252,227,215,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,253,Training cost per personnel A,-1842,96,55,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||255-0-0,0,0,0,0,0,0
+1,254,253,220,1,0,0,0,0,192,0,-1--1--1,,1|(-1807,158)|
+1,255,176,41,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,256,220,55,1,0,0,0,0,192,0,-1--1--1,,1|(-2067,485)|
+1,257,183,176,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,258,220,41,1,0,0,0,0,192,0,-1--1--1,,1|(-2604,113)|
+1,259,244,216,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,260,243,217,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,261,Personnel under training B,819,241,54,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,262,Personnel B,1014,229,43,23,3,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,263,48,598,234,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,264,266,263,100,0,0,22,0,192,0,-1--1--1,,1|(642,234)|
+1,265,266,261,4,0,0,22,0,192,0,-1--1--1,,1|(727,234)|
+11,266,0,683,234,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,267,New Personnel to be trained B,683,260,65,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,268,270,261,100,0,0,22,0,192,0,-1--1--1,,1|(893,232)|
+1,269,270,262,4,0,0,22,0,192,0,-1--1--1,,1|(948,232)|
+11,270,0,919,232,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,271,New trained personnel B,919,258,50,18,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+12,272,48,1213,229,10,8,0,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,273,275,262,100,0,0,22,0,192,0,-1--1--1,,1|(1090,229)|
+1,274,275,272,4,0,0,22,0,192,0,-1--1--1,,1|(1169,229)|
+11,275,0,1130,229,6,8,34,3,0,2,1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,276,Personnel retiring B,1130,260,64,23,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,277,Initial Personnel under training B,804,304,64,18,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||0-128-0,0,0,0,0,0,0
+10,278,Initial Personnel B,1016,318,58,23,8,3,0,6,-1,0,0,0,0-0-0,255-255-255,|||0-128-0,0,0,0,0,0,0
+10,279,New operating personnel needed B,426,162,80,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,280,New maintenance personnel needed B,459,330,80,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,281,279,267,1,0,0,0,0,192,0,-1--1--1,,1|(594,192)|
+1,282,280,267,1,0,0,0,0,192,0,-1--1--1,,1|(618,339)|
+10,283,Total UAS personnel Cost B,917,122,69,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,284,262,283,1,0,0,0,0,192,0,-1--1--1,,1|(968,172)|
+1,285,261,283,1,0,0,0,0,192,0,-1--1--1,,1|(858,179)|
+10,286,Cost per personnel B,1056,43,62,23,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+1,287,286,283,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,288,operators per UAS B,356,74,60,23,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,289,288,279,1,0,0,0,0,192,0,-1--1--1,,1|(418,122)|
+10,290,maintainers per UAS B,589,423,57,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+1,291,290,280,1,0,0,0,0,192,0,-1--1--1,,1|(502,388)|
+10,292,Base operators needed B,548,78,57,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-64,|||0-128-0,0,0,0,0,0,0
+1,293,292,288,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,294,Time to recruit B,715,175,54,23,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+10,295,Time to train B,929,181,58,10,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+10,296,Time in service B,1131,185,54,23,8,3,0,6,-1,0,0,0,0-0-0,128-255-255,|||0-128-0,0,0,0,0,0,0
+1,297,277,261,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,298,278,262,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+1,299,294,267,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,300,295,271,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,301,296,276,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,302,261,271,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,303,262,276,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,304,292,277,1,0,0,0,0,64,0,-1--1--1,,1|(657,193)|
+1,305,290,277,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,306,292,278,1,0,0,0,0,64,0,-1--1--1,,1|(785,162)|
+10,307,Initial UAS stock A,1034,374,43,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,308,307,278,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,309,290,278,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,310,Training cost per personnel B,831,49,61,18,8,3,0,6,-1,0,0,0,0-0-0,255-128-0,|||0-128-0,0,0,0,0,0,0
+1,311,310,283,1,0,0,0,0,192,0,-1--1--1,,1|(890,104)|
+10,312,AI Development B,280,32,61,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,313,312,288,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,314,UAS stock B,472,236,56,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,315,314,279,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,316,UAS stock B,493,259,56,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,317,316,280,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,318,Initial UAS stock B,807,351,43,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,319,318,277,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,320,283,104,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,321,283,114,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,322,56,204,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,323,115,267,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,324,Time to change desired margin of superiority A,-3209,626,65,27,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,325,324,181,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,326,Time to change desired margin of superiority B,-569,698,65,27,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,327,326,192,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,328,183,163,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,329,103,168,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,330,personnel ratio A,-1832,712,56,23,8,3,17,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,331,199,330,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,332,262,330,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,333,personnel ratio B,-1583,834,56,23,8,3,17,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,334,199,333,0,17,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,335,262,333,0,17,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,336,capability ratio A,-1676,992,55,23,8,3,17,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,337,capability ratio B,-1522,1078,54,23,8,3,17,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,338,64,337,1,17,0,0,0,192,0,-1--1--1,,1|(-1020,1090)|
+1,339,64,336,0,17,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,340,2,336,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,341,2,337,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,342,Budget A,-3172,508,33,11,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,343,342,181,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,344,149,342,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,345,55,342,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,346,176,342,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,347,Budget B,-571,583,35,10,8,3,0,16,-1,0,0,0,0-0-0,0-0-0,|||0-0-0,0,0,0,0,0,0
+1,348,347,192,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,349,140,347,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,350,114,347,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,351,187,347,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,352,One year,-455,680,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,353,352,192,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,354,One year,-3265,608,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,355,354,181,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,356,One year,-3144,477,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,357,356,342,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,358,One year,-516,540,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,359,358,347,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,360,One year,-222,561,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,361,360,114,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,362,One year,-2911,557,43,10,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,363,362,55,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,364,One Technology,-2434,123,47,18,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,365,364,225,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,366,One Technology,224,147,47,18,8,2,17,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,367,366,288,0,17,0,0,0,64,0,-1--1--1,,1|(0,0)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 4
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,51,0
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 5
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 6
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 7
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 8
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 9
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+///---\\\
+:L<%^E!@
+1:test.vdfx
+1:Open Exploration.vdfx
+4:Time
+5:New maintenance personnel needed B
+9:test
+19:76,2
+24:0
+25:30
+26:30
+60:
+61:0
+62:0
+63:1
+64:0
+65:0
+66:0
+67:0
+68:0
+69:0
+70:1
+22:$,Dollar,Dollars,$s
+22:Hour,Hours
+22:Month,Months
+22:Person,People,Persons
+22:Unit,Units
+22:Week,Weeks
+22:Year,Years
+22:Day,Days
+18:Sensitivity.vsc
+20:Outcomes.lst
+15:0,0,0,0,0,0
+27:2,
+34:0,
+42:0
+72:0
+73:0
+35:Date
+36:YYYY-MM-DD
+37:2010
+38:1
+39:1
+40:0
+41:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Ebrima|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
